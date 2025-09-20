@@ -6,8 +6,10 @@
 #include "GameFramework/Actor.h"
 #include "MyProject2Projectile.generated.h"
 
+
 class USphereComponent;
 class UProjectileMovementComponent;
+class UNiagaraSystem;
 
 UCLASS(config=Game)
 class AMyProject2Projectile : public AActor
@@ -36,6 +38,9 @@ class AMyProject2Projectile : public AActor
 
 	UPROPERTY()
 	UMaterialInstanceDynamic* dmiMat;
+
+	UPROPERTY(EditAnywhere)
+	UNiagaraSystem* colorP;
 
 public:
 	AMyProject2Projectile();
