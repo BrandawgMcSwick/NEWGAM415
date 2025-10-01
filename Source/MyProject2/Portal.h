@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Portal.generated.h"
 #include "Components/SceneCaptureComponent2D.h"
 #include "Engine/TextureRenderTarget2D.h"
 #include "Components/BoxComponent.h"
+#include "Components/ArrowComponent.h"
 #include "Portal.generated.h"
 
 class MyProject2Character;
@@ -35,8 +35,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		USceneCaptureComponent2D* sceneCapture;
 
+	UPROPERTY(EditAnyWhere)
+	UArrowComponent* rootArrow;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UTextureRenderTarget2D* renderTarget;
+		UTextureRenderTarget2D* renderTarget;
 
 	UPROPERTY(EditAnywhere)
 		UBoxComponent* boxComp;
@@ -51,7 +54,7 @@ public:
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION()
-		void SetBool(AMyProject2Character* playChar);
+		void SetBool(AMyProject2Character* playerChar);
 
 	UFUNCTION()
 	void UpdatePortals();
